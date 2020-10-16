@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
+
+        <service android:name=".OneService" />
     </application>
 
 </manifest>

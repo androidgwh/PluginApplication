@@ -17,6 +17,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(mActivity, SecondActivity.class));
+                        startService(new Intent(mActivity,OneService.class));
                     }
                 });
     }

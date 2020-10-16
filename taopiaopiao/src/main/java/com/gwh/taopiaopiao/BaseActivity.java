@@ -1,9 +1,11 @@
 package com.gwh.taopiaopiao;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -27,52 +29,93 @@ public class BaseActivity extends Activity implements InterfaceActivity {
 
     @Override
     public void setContentView(int layoutResID) {
-        mActivity.setContentView(layoutResID);
+        if(null==mActivity){
+         super.setContentView(layoutResID);
+        }else {
+            mActivity.setContentView(layoutResID);
+        }
     }
 
     @Override
     public <T extends View> T findViewById(int id) {
+        if(null==mActivity){
+            return super.findViewById(id);
+        }
         return mActivity.findViewById(id);
     }
 
     @Override
     public Intent getIntent() {
+        if(null==mActivity){
+            return super.getIntent();
+        }
         return mActivity.getIntent();
     }
 
     @Override
     public ClassLoader getClassLoader() {
+        if(null==mActivity){
+            return super.getClassLoader();
+        }
         return mActivity.getClassLoader();
     }
 
     @Override
     public void startActivity(Intent intent) {
+        Log.d("BaseActivity", intent.getComponent().getClassName());
         Intent intent1 = new Intent();
         intent1.putExtra("className", intent.getComponent().getClassName());
-        mActivity.startActivity(intent1);
+        if(null==mActivity){
+         super.startActivity(intent);
+        }else {
+            mActivity.startActivity(intent1);
+        }
     }
 
+    @Override
+    public ComponentName startService(Intent service) {
+        Log.d("BaseActivity", service.getComponent().getClassName());
+        Intent intent = new Intent();
+        intent.putExtra("className", service.getComponent().getClassName());
+        if(null==mActivity){
+            super.startService(service);
+        }
+            return mActivity.startService(intent);
+
+    }
 
     @NonNull
     @Override
     public LayoutInflater getLayoutInflater() {
+        if(null==mActivity){
+            return super.getLayoutInflater();
+        }
         return mActivity.getLayoutInflater();
     }
 
     @Override
     public ApplicationInfo getApplicationInfo() {
+        if(null==mActivity){
+            return super.getApplicationInfo();
+        }
         return mActivity.getApplicationInfo();
     }
 
 
     @Override
     public Window getWindow() {
+        if(null==mActivity){
+            return super.getWindow();
+        }
         return mActivity.getWindow();
     }
 
 
     @Override
     public WindowManager getWindowManager() {
+        if(null==mActivity){
+            return super.getWindowManager();
+        }
         return mActivity.getWindowManager();
     }
 
@@ -89,6 +132,7 @@ public class BaseActivity extends Activity implements InterfaceActivity {
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
     }
 
     @Override

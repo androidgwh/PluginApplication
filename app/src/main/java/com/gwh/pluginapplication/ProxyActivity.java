@@ -1,6 +1,7 @@
 package com.gwh.pluginapplication;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -55,6 +56,14 @@ public class ProxyActivity extends Activity {
         Intent intent1 = new Intent(this, ProxyActivity.class);
         intent1.putExtra("className", className);
         super.startActivity(intent1);
+    }
+
+    @Override
+    public ComponentName startService(Intent service) {
+        String serviceName = service.getStringExtra("className");
+        Intent intent = new Intent(this,ProxyService.class);
+        intent.putExtra("className", serviceName);
+        return super.startService(intent);
     }
 
     @Override
