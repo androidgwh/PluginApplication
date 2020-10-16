@@ -6,7 +6,10 @@
 关键部分在于classLoader加载class类以及resource 渲染布局UI。
 
 module描述：
-#### app 宿主 module ，模拟下载taopiaopiao module 生成的apk 插件 ，并存在一个ProxyActivity代理Activity，代理Activity实际打开的是taopiaopiao的页面
-#### PluginStandard 插件标准，需要在宿主中植入的插件，必须符合这套标准，由于插件 module 的activity 没有加载，不存在上下文，需要宿主提供上下文环境才可以启动。
-#### taopiaopiao 插件 module ，实现规定的标准。
+#### app 宿主 module 
+模拟下载taopiaopiao module 生成的apk 插件 ，并存在一个ProxyActivity代理Activity，代理Activity实际打开的是taopiaopiao的页面
+#### PluginStandard
+插件标准，需要在宿主中植入的插件，必须符合这套标准，由于插件 module 的activity 没有加载，不存在上下文，需要宿主提供上下文环境才可以启动。
+#### taopiaopiao 
+插件 module ，实现规定的标准。
 
