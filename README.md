@@ -1,4 +1,4 @@
-# PliuginApplication
+# PluginApplication
 ### 插件化概述
 首先存在一个宿主和插件、标准，标准即插件要植入宿主必须满足的规则。
 其次宿主 module 存在一个代理Activity，代理activity需要做的就是插桩的操作，而内部实际调用的是插件的页面。
