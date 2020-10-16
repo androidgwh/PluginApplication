@@ -1,0 +1,4 @@
+include ':taopiaopiao'
+include ':PluginStandard'
+include ':app'
+rootProject.name = "PluginApplication"
