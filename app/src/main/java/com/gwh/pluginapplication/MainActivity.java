@@ -1,10 +1,10 @@
 package com.gwh.pluginapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,8 +16,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ProxyActivity.class);
-                intent.putExtra("className", PluginManager.getInstance().getPackageArchiveInfo().activities[0].name);
+                Intent intent = new Intent();
+                //intent.putExtra("className", PluginManager.getInstance().getPackageArchiveInfo().activities[0].name);
+                ComponentName componentName =
+                    new ComponentName("com.gwh.pluginapplication", "com.gwh.pluginapplication.ProxyActivity");
+                intent.setComponent(componentName);
                 startActivity(intent);
             }
         });

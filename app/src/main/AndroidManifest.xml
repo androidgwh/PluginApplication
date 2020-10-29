@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".PluginApp"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -16,7 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProxyActivity" />
+<!--        <activity android:name=".ProxyActivity"-->
+
+<!--            ></activity>-->
+        <activity android:name=".HookProxyActivity" />
+        <activity android:name=".HookHandleActivity" />
 
         <service android:name=".ProxyService" />
     </application>
